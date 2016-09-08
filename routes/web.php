@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/auth/fitbit', 'FitbitController@redirectToProvider');
 Route::get('/auth/fitbit/callback', 'FitbitController@handleProviderCallback');
-Route::get('/fibit/activities', 'FitbitController@activities');
+Route::get('/fitbit/activities', 'FitbitController@activities');

@@ -45,7 +45,6 @@ class FitbitController extends Controller
             abort(404);
         } else {
             try {
-                // Try to get an access token using the authorization code grant.
                 $accessToken = $provider->getAccessToken('authorization_code', [
                     'code' => $request->get('code'),
                 ]);
@@ -56,12 +55,17 @@ class FitbitController extends Controller
                     'name' => $resourceOwner['fullName'],
                     'fitbit_id' => $resourceOwner['encodedId'],
                 ]);
-                Token::firstOrCreate([
+                $tokenDetails = [
                     'access_token' => $accessToken->getToken(),
                     'resource_owner_id' => $owner->fitbit_id,
                     'refresh_token' => $accessToken->getRefreshToken(),
                     'expires_in' => $accessToken->getExpires(),
-                ]);
+                ];
+                if (!$owner->token) {
+                    Token::create($tokenDetails);
+                } else {
+                    $owner->token->renew($tokenDetails);
+                }
 
                 Auth::login($owner);
 
