@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth/fitbit', 'FitbitController@redirectToProvider');
-Route::get('/auth/fitbit/callback', 'FitbitController@handleProviderCallback');
+Route::get('/auth/fitbit', 'FitbitAuthenticationController@redirectToProvider');
+Route::get('/auth/fitbit/callback', 'FitbitAuthenticationController@handleProviderCallback');
 Route::get('/fitbit/activities', 'FitbitController@activities');

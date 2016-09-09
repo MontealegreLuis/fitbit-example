@@ -166,8 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        \App\Providers\FitbitServiceProvider::class,
 
         /*
          * Application Service Providers...
