@@ -46,6 +46,7 @@ class FitbitAuthenticationController extends Controller
 
                 $resourceOwner = $this->provider->getResourceOwner($accessToken)->toArray();
 
+                /** @var User $owner */
                 $owner = User::firstOrCreate([
                     'name' => $resourceOwner['fullName'],
                     'fitbit_id' => $resourceOwner['encodedId'],

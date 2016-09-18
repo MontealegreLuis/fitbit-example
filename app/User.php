@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property Token $token
+ * @property int $fitbit_id
+ */
 class User extends Authenticatable
 {
     use Notifiable;

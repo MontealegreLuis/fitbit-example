@@ -5,6 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use League\OAuth2\Client\Token\AccessToken;
 
+/**
+ * @property string $access_token
+ * @property int $resource_owner_id
+ * @property string $refresh_token
+ * @property int $expires_in
+ */
 class Token extends Model
 {
     public $timestamps = false;
