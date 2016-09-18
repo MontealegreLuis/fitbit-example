@@ -55,7 +55,7 @@ class FitbitAuthenticationController extends Controller
                     'access_token' => $accessToken->getToken(),
                     'resource_owner_id' => $owner->fitbit_id,
                     'refresh_token' => $accessToken->getRefreshToken(),
-                    'expires_in' => $accessToken->getExpires(),
+                    'expires' => $accessToken->getExpires(),
                 ];
                 if (!$owner->token) {
                     Token::create($tokenDetails);

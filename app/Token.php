@@ -19,7 +19,7 @@ class Token extends Model
         'access_token',
         'resource_owner_id',
         'refresh_token',
-        'expires_in',
+        'expires',
     ];
 
     public function oauthToken()
@@ -31,7 +31,7 @@ class Token extends Model
     {
         $this->access_token = $newValues['access_token'];
         $this->refresh_token = $newValues['refresh_token'];
-        $this->expires_in = $newValues['expires_in'];
+        $this->expires = $newValues['expires'];
         $this->save();
     }
 }

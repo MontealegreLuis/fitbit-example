@@ -17,7 +17,7 @@ class CreateTokensTable extends Migration
             $table->string('resource_owner_id')->unique();
             $table->string('access_token');
             $table->string('refresh_token');
-            $table->integer('expires_in');
+            $table->integer('expires');
             $table->primary('resource_owner_id');
             $table->foreign('resource_owner_id')->references('fitbit_id')->on('users');
         });
